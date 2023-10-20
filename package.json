@@ -9,15 +9,26 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "copyright.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "title": "VsCodeCopyright",
+      "properties": {
+        "copyright.files": {
+          "type": "array",
+          "description": "File type info stuff",
+          "default": [
+            {
+              "extension": "rs",
+              "text": "// Copyright (C) 2023 Tristan Gerritsen <tristan@thewoosh.org>\n// All Rights Reserved.\n"
+            }
+          ]
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
